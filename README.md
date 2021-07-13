@@ -62,14 +62,29 @@ dbLoadRecords("database/float.db", "PORT=F0, RECORD_NAME=RedundancyAive:Test")
 iocInit
 ```
 
-### Behavior
+## Config
+
+### Options
+
+Options are configured through `asynSetOption` (syntax: `asynSetOption(port, address, key, value)`)
+
+#### Policy (key: 'policy')
+* Default: `stack`
+
+Governs the behavior of the driver when a new port is connected/disconnected.
+
+##### Values
+* `stack` gives priority to ports created first (in the example above, `L0`) and will swap over to ports with higher priority as soon as they're connected
+* `cycle` does not have any sort of priority; once a port connects, it remains connected until it is disconnected, only then a different port is assigned its place
+
+## Behavior
 
 The driver responds to connect/disconnect events. That means that events such as timeouts won't be registered, therefore, it's necessary to make any event you wish to trigger a port change an explicit disconnect. One such example is featured above, where ports will disconnect on timeouts.
 
 If autoConnect is set to true for the given port, the driver will automatically update the connection status of the port, even if it disconnected beforehand.
 
-### Performance
+## Performance
 
 TODO
 
-### 
+## 
