@@ -1,0 +1,18 @@
+## configure/RELEASE: Location of external products
+
+# Run "gnumake clean uninstall install" in the application top
+# directory whenever this file is changed or any external module
+# pointed to by this RELEASE file is rebuilt.
+
+# If you don't want to install files into $(TOP) then define
+# INSTALL_LOCATION_APP here:
+#INSTALL_LOCATION_APP=<fullpathname>
+
+ASYN       = /opt/epics-R3.15.8/modules/asyn-R4-41
+STREAM     = /opt/epics-R3.15.8/modules/StreamDevice-2.8.18
+AUTOSAVE   = /opt/epics-R3.15.8/modules/autosave-R5-10-2
+CALC       = /opt/epics-R3.15.8/modules/synApps/calc-R3-7-4
+EPICS_BASE = /opt/epics-R3.15.8/base
+
+-include $(TOP)/../RELEASE.local
+-include $(TOP)/configure/RELEASE.local
