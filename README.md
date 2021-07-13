@@ -2,6 +2,8 @@
 
 Asyn driver that enables port redundancy, automatically switching between multiple ports defined by the user based on connection states.
 
+This driver was heavily based on work by [Dirk Zimoch](https://github.com/paulscherrerinstitute/StreamDevice/commits?author=dirk-zimoch) and all files that contain external contributions were marked as such.
+
 ## Installation
 
 ### Requirements
@@ -60,3 +62,14 @@ dbLoadRecords("database/float.db", "PORT=F0, RECORD_NAME=RedundancyAive:Test")
 iocInit
 ```
 
+### Behavior
+
+The driver responds to connect/disconnect events. That means that events such as timeouts won't be registered, therefore, it's necessary to make any event you wish to trigger a port change an explicit disconnect. One such example is featured above, where ports will disconnect on timeouts.
+
+If autoConnect is set to true for the given port, the driver will automatically update the connection status of the port, even if it disconnected beforehand.
+
+### Performance
+
+TODO
+
+### 
