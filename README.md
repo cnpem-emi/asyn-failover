@@ -69,7 +69,7 @@ iocInit
 Options are configured through `asynSetOption` (syntax: `asynSetOption(port, address, key, value)`)
 
 #### Policy (key: 'policy')
-* Default: `stack`
+* Default: `cycle`
 
 Governs the behavior of the driver when a new port is connected/disconnected.
 
