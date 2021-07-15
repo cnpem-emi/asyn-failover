@@ -77,14 +77,20 @@ Governs the behavior of the driver when a new port is connected/disconnected.
 * `stack` gives priority to ports created first (in the example above, `L0`) and will swap over to ports with higher priority as soon as they're connected
 * `cycle` does not have any sort of priority; once a port connects, it remains connected until it is disconnected, only then a different port is assigned its place
 
-## Behavior
+## Notes & FAQ
 
-The driver responds to connect/disconnect events. That means that events such as timeouts won't be registered, therefore, it's necessary to make any event you wish to trigger a port change an explicit disconnect. One such example is featured above, where ports will disconnect on timeouts.
+_Q: What triggers a port switch?_
 
-If autoConnect is set to true for the given port, the driver will automatically update the connection status of the port, even if it disconnected beforehand.
+The driver responds to connect/disconnect events. That means that events such as timeouts won't be registered, therefore, it's necessary to make any event you wish to trigger a port change an explicit disconnect. One such example is featured above, where ports will disconnect on timeouts. If autoConnect is set to true for the given port, the driver will automatically update the connection status of the port, even if it disconnected beforehand.
+
+_Q: Can I reuse the ports I've used to create the failover port in a different record?_
+
+Preferrably, no. If you're not careful about the connect/disconnect timings of the port, it may severely hamper the failover functionality by triggering the events used to listen for port connections, effectively disabling it altogether.
+
+_Q: What kinds of ports are supported?_
+
+All asyn-compatible ports are supported. However, the program only implements IP port support by default. In order to change that, add or remove dependencies in `configure/RELEASE` and `asynFailoverApp/src/Makefile`.
 
 ## Performance
 
-TODO
-
-## 
+Switching between ports is instantaneous when the failover port is already connected. However, when all ports are disconnected, switching times may unfortunately take longer, due to communication protocol initialization procedures and how EPICS deals with port connections/disconnections. Furthermore, if you're using timeouts as triggers for switching ports, switches started by timeout events will only occur once SCAN fires and the reply times out.
