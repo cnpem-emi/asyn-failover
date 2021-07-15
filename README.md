@@ -91,6 +91,10 @@ _Q: What kinds of ports are supported?_
 
 All asyn-compatible ports are supported. However, the program only implements IP port support by default. In order to change that, add or remove dependencies in `configure/RELEASE` and `asynFailoverApp/src/Makefile`.
 
+_Q: Can I use connect/disconnect commands in my protocol file?_
+
+Yes, however, they may not work as intended.
+
 ## Performance
 
 Switching between ports is instantaneous when the failover port is already connected. However, when all ports are disconnected, switching times may unfortunately take longer, due to communication protocol initialization procedures and how EPICS deals with port connections/disconnections. Furthermore, if you're using timeouts as triggers for switching ports, switches started by timeout events will only occur once SCAN fires and the reply times out.
