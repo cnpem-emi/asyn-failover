@@ -349,8 +349,8 @@ static void exceptionHandler(asynUser *pasynUser, asynException exception) {
                 pasynManager->exceptionConnect(pvt->pasynUser);
             } else {
                 /* other port connected */
-                if (pvt->policy == policyStack &&
-                    pvt->current != port && !pvt->current->connected) {
+                if ((pvt->policy == policyStack &&
+                    pvt->current > port) || !pvt->current->connected) {
                     /* change back */
                     pvt->current = port;
                     printf("now connected to port %d\n", pvt->current->index);
