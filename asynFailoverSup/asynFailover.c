@@ -74,7 +74,7 @@ static asynStatus writeIt(void *drvPvt, asynUser *pasynUser,
     status = current->drvOctet->write(current->pvtOctet, current->pasynUser,
         data, numchars, nbytesTransfered);
     copyAsynUser(current->pasynUser, pasynUser);
-    printf("failover write [status %d, reason %d, switched=%d, nbytesTransfered=%zd]: %s\n",
+    //printf("failover write [status %d, reason %d, switched=%d, nbytesTransfered=%zd]: %s\n",
         status, pasynUser->reason, current!=((failoverPvt *)drvPvt)->current, *nbytesTransfered, pasynUser->errorMessage);
     return status;
 }
@@ -89,7 +89,7 @@ static asynStatus readIt(void *drvPvt, asynUser *pasynUser,
     status = current->drvOctet->read(current->pvtOctet, current->pasynUser,
         data, maxchars, nbytesTransfered, eomReason);
     copyAsynUser(current->pasynUser, pasynUser);
-    printf("failover read [status %d, reason %d, switched=%d, nbytesTransfered=%zd, eomReason=%d]: %s\n",
+    //printf("failover read [status %d, reason %d, switched=%d, nbytesTransfered=%zd, eomReason=%d]: %s\n",
         status, pasynUser->reason, current!=((failoverPvt *)drvPvt)->current, *nbytesTransfered, *eomReason, pasynUser->errorMessage);
     return status;
 }
