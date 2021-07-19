@@ -57,7 +57,7 @@ asynSetOption("L1", -1, "disconnectOnReadTimeout", "Y")
 # Failover syntax: <dynamic/output port> <port 1> <port 2> <...> <port n>
 asynFailoverConfig("F0","L0", "L1") 
 
-dbLoadRecords("database/float.db", "PORT=F0, RECORD_NAME=RedundancyAive:Test")
+dbLoadRecords("database/float.db", "PORT=F0, RECORD_NAME=RedundancyAlive:Test")
 
 iocInit
 ```
