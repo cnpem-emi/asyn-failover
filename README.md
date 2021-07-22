@@ -1,5 +1,3 @@
-# Moved to [GitHub](https://github.com/cnpem-iot/asyn-failover)
-
 # Asyn Port Redundancy Driver (asyn-failover)
 
 Asyn driver that enables port redundancy, automatically switching between multiple ports defined by the user based on connection states.
