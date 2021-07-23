@@ -1,5 +1,7 @@
 # Asyn Port Redundancy Driver (asyn-failover)
 
+[![build](https://github.com/cnpem-iot/asyn-failover/actions/workflows/ci-scripts-build.yml/badge.svg)](https://github.com/cnpem-iot/asyn-failover/actions/workflows/ci-scripts-build.yml)
+
 Asyn driver that enables port redundancy, automatically switching between multiple ports defined by the user based on connection states.
 
 This driver was heavily based on work by [Dirk Zimoch](https://github.com/paulscherrerinstitute/StreamDevice/commits?author=dirk-zimoch) and all files that contain external contributions were marked as such.
