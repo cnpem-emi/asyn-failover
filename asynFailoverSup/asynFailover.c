@@ -4,7 +4,7 @@
 /* Connect to multiple lower level asyn ports and switch dynamically
  * when one disconnects.
  * 
- * Author: Dirk Zimoch
+ * Authors: Dirk Zimoch (baseline code), Guilherme Freitas (fixes, new features, current development)
  */
 
 #include <string.h>
