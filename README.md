@@ -4,7 +4,7 @@
 
 Asyn driver that enables port redundancy, automatically switching between multiple ports defined by the user based on connection states.
 
-This driver was heavily based on work by [Dirk Zimoch](https://github.com/paulscherrerinstitute/StreamDevice/commits?author=dirk-zimoch) and all files that contain external contributions were marked as such.
+**This driver was heavily based on work by [Dirk Zimoch](https://github.com/paulscherrerinstitute/StreamDevice/commits?author=dirk-zimoch) and all files that contain external contributions were marked as such.**
 
 ## Installation
 
